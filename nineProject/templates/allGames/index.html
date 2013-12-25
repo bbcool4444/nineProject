@@ -37,275 +37,269 @@ window.top.location = '/ie6';
   <section class="row-fluid" id="mainContainer">
     <div class="span10 content borBox pull-right">
       <div class="row-fluid phone_banner">
-    <div class="span8 hidden-phone" role="banner">
-      {% load staticfiles %}
-      <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height="80" src="{% static 'allGames/fakegif.png' %}" width="670" /></a>
+        <div class="span8 hidden-phone" role="banner">
+          {% load staticfiles %}
+          <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height="80" src="{% static 'allGames/fakegif.png' %}" width="670" /></a>
+        </div>
+        <div class="span4" style="height: 80px;" data-step="8" data-intro="登入36氪，发表评论，收藏文章">
+          <div class="visible-phone phone_logo">
+            <a href="/"><img alt="36氪" src="{% static 'allGames/logo-phone1.png' %}" title="36氪"></a>
+          </div>
+          <ul class="user_nav" id="userbar"><li class="first last"><a href="/account/sign_in" class="hidden-phone btn btn-danger pull-right" data-no-turbolink="true">登录</a></li></ul>
+        </div>
+      </div><!--row-fluid phone_banner-->
 
-    </div>
-    <div class="span4" style="height: 80px;" data-step="8" data-intro="登入36氪，发表评论，收藏文章">
-  <div class="visible-phone phone_logo">
-    <a href="/"><img alt="36氪" src="{% static 'allGames/logo-phone1.png' %}" title="36氪"></a>
-  </div>
+      <!--navigation-->
+      <div class="nav_links row-fluid">
+        <div class="span8">
+          <a href="/account/sign_in" class="visible-phone phone_login_link" data-no-turbolink="true">登录</a>
+          <div class="subnav">
+            <ul class="nav nav-pills" data-step="3" data-intro="点击查看分类">
+              <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/cn-startups');" href="/category/cn-startups">国内游戏</a</li>
+              <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/us-startups');"  href="/category/us-startups">国外游戏</a></li>
+              <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/cn-news');"  href="/category/cn-news">国内资讯</a></li>
+              <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/breaking');"  href="/category/breaking">国外资讯</a></li>
+              <li class="visible-desktop"><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/digest');"  href="http://www.36kr.com/topics/91">投稿<sup>New!</sup></a></li>
+              <li class="visible-desktop"><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/column');"  href="/category/column">专栏</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/explore">主题分类</a></li>
+                  <li><a href="/krweekly">氪周刊</a></li>
+                  <li><a href="/krmonthly">氪月报</a></li>
+                  <li><a href="/tag/36氪开放日">36氪开放日</a></li>
+                  <li><a href="/weixin">微信导航•创业版</a></li>
+                </ul>
+              </li>
+            </ul>                
+          </div><!--subnav-->
+        </div><!--span8-->
+        <!--/navigation-->
 
-        <ul class="user_nav" id="userbar"><li class="first last"><a href="/account/sign_in" class="hidden-phone btn btn-danger pull-right" data-no-turbolink="true">登录</a></li></ul>
-
-  <div class="social-share-button pull-left hidden-phone">
-
-<a href="/account/sign_up" class=" " data-no-turbolink="true">现在注册</a>，<br/> 或使用社交帐户快速登入: 
-
-<a href="/account/auth/weibo" data-no-turbolink="true" class="social-share-button-weibo" rel="nofollow " title="新浪微博帐号登陆"></a>
-<a href="/account/auth/qq" data-no-turbolink="true" class="social-share-button-qq" rel="nofollow " title="QQ 帐号登陆"></a>
-<a href="/account/auth/renren" data-no-turbolink="true" class="social-share-button-renren" rel="nofollow " title="人人网帐号登陆"></a>
-</div>
-
-    </div>
-</div>
-          <div class="nav_links row-fluid ">
-            <div class="span8">
-                <a href="/account/sign_in" class="visible-phone phone_login_link" data-no-turbolink="true">登录</a>
-                  <div class="subnav">
-                    <ul class="nav nav-pills" data-step="3" data-intro="点击查看分类">
-                      <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/cn-startups');" href="/category/cn-startups">国内游戏</a</li>
-                      <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/us-startups');"  href="/category/us-startups">国外游戏</a></li>
-                      <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/cn-news');"  href="/category/cn-news">国内资讯</a></li>
-                      <li><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/breaking');"  href="/category/breaking">国外资讯</a></li>
-                      <li class="visible-desktop"><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/digest');"  href="http://www.36kr.com/topics/91">投稿<sup>New!</sup></a></li>
-                      <li class="visible-desktop"><a onclick="recordOutboundLink(this, 'Category Links', '36kr.com/column');"  href="/category/column">专栏</a></li>
-                      <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">更多<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                              <li><a href="/explore">主题分类</a></li>
-                              <li><a href="/krweekly">氪周刊</a></li>
-                              <li><a href="/krmonthly">氪月报</a></li>
-                              <li><a href="/tag/36氪开放日">36氪开放日</a></li>
-                              <li><a href="/weixin">微信导航•创业版</a></li>
-                            </ul>
-                          </li>
-                    </ul>                
-                  </div>
-            </div>
-            <div class="span4"><form action="/search/" method="get" class="form form-search">
-        <div class="row-fluid hidden-phone">
+        <!--search-->
+        <div class="span4"><form action="/search/" method="get" class="form form-search">
+          <div class="row-fluid hidden-phone">
             <div class="input-append ">
-                <button class="btn btn-primary span2 pull-right" style="width:18%"><i class="icon-search"></i> </button>
-                <input type="text" name="q" id="avnpc-form-searchform-q" class="search-query span10  validate[required]" placeholder="搜索" value="">        
+              <button class="btn btn-primary span2 pull-right" style="width:18%"><i class="icon-search"></i></button>
+              <input type="text" name="q" id="avnpc-form-searchform-q" class="search-query span10  validate[required]" placeholder="搜索" value="">
             </div>
-        </div>
-    </form></div>
-          </div>
-                <div class="pull-right sep10 span4">
-                  <div class="cnt sep5"><a rel="twipsy" title="信息反馈通道"  target="_blank" href="/contact-us/?utm_source=index_sidebar" class="pull-right">【联系我们】</a><wb:follow-button uid="1750070171" type="red_2" width="136" height="24" ></wb:follow-button></div>
-                </div>
-                <h2 class="sep5">精品推荐</h2>
+          </div><!--row-fluid hidden-phone-->
+        </form></div><!--span4-->
+        <!--/search-->
+      </div><!--nav_links row-fluid-->
 
-<!--精品推荐-->
-<div class="row-fluid">
-  <div class="span8">
-
-    <div class="row-fluid feature_topics">
-    {% for game in games %}
-      <div class="view_208622 span4 feature_img">
-        <a href="#"><img src="{{ game.image.url }}" alt="专栏"></a>
-        <div class="sep5">
-          <h4><a href="/p/208622.html?vt=0" rel="twipsy" title="{{ game.name }}">{{ game.name }}</a></h4>
+      <div class="pull-right sep10 span4">
+        <div class="cnt sep5">
+          <a rel="twipsy" title="信息反馈通道"  target="_blank" href="#" class="pull-right">联系我们</a>
+          <wb:follow-button uid="1750070171" type="red_2" width="136" height="24" ></wb:follow-button>
         </div>
       </div>
-    {% endfor %}
-    </div><!--row-fluid feature_topics-->
+      <h2 class="sep5">精品推荐</h2>
 
-    <div class="row-fluid k815_posts">
-      <div class="span6">
-        <ul>
-          <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new1</a></li>
-          <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new2</a></li>
-          <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new3</a></li>
-          <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new4</a></li>
-          <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new5</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="muted k815_sep"><div class="pull-right">查看更多<a href="/815"># 八点一氪 #</a></div></div>
-    <div class="kr_tips sep5">9秒开源游戏世界, 你的时代!<a href="#">查看相关文章</a></div>
-
-    <h2 class="sep10">最新游戏</h2>
-
-  </div><!--span8-->
-
-  <!--热门游戏资讯-->
-  <div class="span4 krSide">
-    <div class="popular_post_today" data-step="7" data-intro="查看当前热门游戏资讯">
-      <h6 class="sidebar_title">热门游戏资讯</h6>
-      <div class="high_likes_topics">
-        <ul>
-          <li class="shadow-box">
-            <a href="#" data-no-turbolink="ture" rel="twipsy" target="_blank" title="资讯1">资讯1</a>
-          </li>
-        </ul>
-      </div>
-      <div class="cnt magb10">
-        <a href="#" target="_blank" title="广告1"><img alt="广告1" height="90" src="" width="280" /></a>
-      </div>
-    </div><!--popular_post_today-->
-  </div><!--span4 krSide-->
-  <!--热门游戏资讯-->
-
-</div><!--row-fluid-->
-<!--/精品推荐-->
-
-<div class="row-fluid">
-  <div class="span8 krContent">
-    <!--最新游戏-->
-    {% for game in games %}
-    <div class="row-fluid blogPost cn-startups">
-      <div class="left_info pull-left hidden-phone span4">
-        <div class="feature_img row-fluid">      
-          <a href="#"><img alt="{{ game.name }}" height="200" src="{{ game.image.url }}" width="320" /></a>
-        </div>
-        <div class="share_btn sep10" data-step="5" data-intro="快速分享到微博">
-          <wb:publish toolbar="face,topic" button_type="red" button_size="middle" default_text="#default_text" button_text="分享 / 13人"  default_image="{{ game.image.url }}" ></wb:publish>            
-        </div>
-      </div><!--left_info pull-left hidden-phone span4-->
-      <div class="right_info span8 pull-right magb30 sep-5">
-        <div class="summary">    
-          <h4><a href="#" data-no-turbolink="true" target="_blank" title="{{ game.name }}">{{ game.name }}</a></h4>
-          <div class="post_meta sep5 muted"><a href="/somebody" class="uname user_S_somebodys" data-name="某人" target="_blank">某人</a> • <a href="#" target="_blank">某游戏公司</a> • <abbr class="timeago" title="timezone"></abbr> • 暂无评论
-          </div>
-          <div class="excerpt sep-5">
-            <p>{{ game.descriptions }}</p>
-            <div class="post_meta sep-10 muted">
-              <a class="pull-right sep-5"><a title="点击阅读全文(3019 字)" class="pull-right" href="#" >继续阅读 <i class="icon-double-angle-right"></i></a>
+      <!--精品推荐-->
+      <div class="row-fluid">
+        <div class="span8">
+      
+          <div class="row-fluid feature_topics">
+          {% for game in games %}
+            <div class="view_208622 span4 feature_img">
+              <a href="#"><img src="{{ game.image.url }}" alt="专栏"></a>
+              <div class="sep5">
+                <h4><a href="/p/208622.html?vt=0" rel="twipsy" title="{{ game.name }}">{{ game.name }}</a></h4>
+              </div>
             </div>
-          </div>
-        </div><!--summary-->
-      </div><!--right_info span8 pull-right magb30 sep-5-->
-    </div><!--row-fluid blogPost cn-startups-->
-    {% endfor %}
-    <!--/最新游戏-->
-
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="pagination">
-          <ul>
-            <li class="prev previous_page disabled"><a href="#">&#8592; 上一页</a></li>
-            <li class="active"><a rel="start" href="/?page=1">1</a></li>
-            <li><a rel="next" href="/?page=2">2</a></li>
-            <li><a href="/?page=3">3</a></li>
-            <li><a href="/?page=4">4</a></li>
-            <li><a href="/?page=5">5</a></li>
-            <li class="disabled"><a href="#"><span class="gap">&hellip;</span></a></li>
-            <li><a href="/?page=99">99</a></li>
-            <li><a href="/?page=100">100</a></li>
-            <li class="next next_page "><a rel="next" href="/?page=2">下一页 &#8594;</a></li>
-          </ul>
-        </div><!--pagination-->
-      </div><!--span12-->
-    </div><!--row-fluid-->
-  </div><!--span8 krContent-->
-  <div class="span4 krSide sep10">
-    <div id='timeline'></div>
-      <div class="sep10"></div>
-        <div class="wxlist clearfix">
-        <h6 class="sidebar_title btn-block">赞助商链接</h6>
-        <ul>
-          {% for sponsor in sponsoies%}
-          <li>
-            <div class="pull-right">
-              <a target="_blank" ref="nofollow" href="{{ sponsor.address }}"><img alt="{{ sponsor.name }}" class="img-rounded" height="60" src="{{ sponsor.image.url }}" width="60"></a>
-            </div>
-            <div>
-              <a target="_blank" href="{{ sponsor.address }}" title="点击查看全文">{{ sponsor.descriptions }}</a>
-              <div class="muted">{{ sponsor.name }}</div>
-            </div>
-          </li>
           {% endfor %}
-        </ul>
-</div> 
-<div class="cnt magb10">
-        <a href="http://cnrdn.com/ZPkC" target="_blank" title="三星新炫刊"><img alt="三星新炫刊" height="280" src="http://a.36krcnd.com/poster/ad9a8249b768ecfcb1ca8613c258ae0a.jpg" width="280" /></a>
-
-</div>
-  <div class="recent_nodes nodes clearfix tags">
-    <h6 class="sidebar_title btn-block">最新创业公司</h6>
-    <ul class="unstyled">
-        <li> <a href="/topics/weijia" title="微加">微加</a></li>
-        <li> <a href="/topics/gokuai" title="够快">够快</a></li>
-        <li> <a href="/topics/dfb365" title="订房宝">订房宝</a></li>
-        <li> <a href="/topics/weilver" title="微驴儿">微驴儿</a></li>
-        <li> <a href="/topics/idgo" title="IDGO 车行保">IDGO 车行保</a></li>
-        <li> <a href="/topics/paita" title="paita">paita</a></li>
-        <li> <a href="/topics/meizhuangxinde" title="美妆心得">美妆心得</a></li>
-        <li> <a href="/topics/haloband" title="Haloband">Haloband</a></li>
-        <li> <a href="/topics/cuptime" title="Cuptime">Cuptime</a></li>
-        <li> <a href="/topics/citytaste" title="城市味道">城市味道</a></li>
-        <li> <a href="/topics/highand" title="高手推">高手推</a></li>
-        <li> <a href="/topics/vigo" title="Vigo">Vigo</a></li>
-        <li> <a href="/topics/51talk" title="51Talk">51Talk</a></li>
-        <li> <a href="/topics/upyun" title="又拍云">又拍云</a></li>
-        <li> <a href="/topics/plugaway" title="Plugaway">Plugaway</a></li>
-    </ul>
-  </div>
-
-<div class="high_likes_replys">
-        <h6 class="btn-block sidebar_title">优质评论</h6>
-<ul class="aside-menu">
-        <li class="active">
-                <a class="ulink" target="_blank" title="虾叔" data-card = "/cards/u1356784700/popover.html" href="/u1356784700"><img alt="虾叔" class="uface img-rounded" src="http://tp3.sinaimg.cn/2013359925/180/1" style="width:48px;height:48px;" /></a>
-                <span class="commentor"><a href="/u1356784700" class="uname user_u1356784700" data-name="虾叔" target="_blank">虾叔</a>  <span class="label label-success role">资深评论员</span></span>
-                        <a rel="twipsy" title="评论于：Elance和oDesk合并的影响" target="_blank" href="/p/208632.html" class="right cmt">原来oDesk都9年了. 今年看到好几个顶级学校做crowdsourcing的phd毕业去了oDesk Research才知道这不是家车库公司.. </a>
-        </li> 
-        <li class="active">
-                <a class="ulink" target="_blank" title="绿茶+冰酒" data-card = "/cards/neilkong/popover.html" href="/neilkong"><img alt="绿茶+冰酒" class="uface img-rounded" src="http://a.36krcnd.com/user/default_avatars/Cactus.png!avatar" style="width:48px;height:48px;" /></a>
-                <span class="commentor"><a href="/neilkong" class="uname user_neilkong" data-name="绿茶+冰酒" target="_blank">绿茶+冰酒</a>  <span class="label label-success role">热心读者</span></span>
-                        <a rel="twipsy" title="评论于：一场越狱引发的血案" target="_blank" href="/p/208621.html" class="right cmt">商业化的越狱，本身就不是什么值得推崇的行为。说实话，App Store上几块钱的应用很贵吗？能花几千买苹果手机，就花不了几十块钱买一个好应用？背后可是开发者的心血。所以把手机越狱的人，就别谈什么节操了。 </a>
-        </li> 
-        <li class="active">
-                <a class="ulink" target="_blank" title="张新原" data-card = "/cards/u1386259238/popover.html" href="/u1386259238"><img alt="张新原" class="uface img-rounded" src="http://tp3.sinaimg.cn/1987724755/180/1" style="width:48px;height:48px;" /></a>
-                <span class="commentor"><a href="/u1386259238" class="uname user_u1386259238" data-name="张新原" target="_blank">张新原</a>  <span class="label label-success role">热心读者</span></span>
-                        <a rel="twipsy" title="评论于：品牌价值版盗梦空间" target="_blank" href="/p/208615.html" class="right cmt">创业早期的准备非常重要，在写代码之前一定要有相应的计划，然后你才能像莱昂纳多一样，把自己的价值定位植入到受众的脑中，让他知道你的产品或服务会给他的生活带来怎样的变化。 </a>
-        </li> 
-        <li class="active">
-                <a class="ulink" target="_blank" title="u1387806163" data-card = "/cards/u1387806163/popover.html" href="/u1387806163"><img class="uface img-rounded" src="http://qzapp.qlogo.cn/qzapp/100289813/CD1E34ADAAE7B262BE3CC5D203D3C2A6/100" style="width:48px;height:48px;" /></a>
-                <span class="commentor"><a href="/u1387806163" class="uname user_u1387806163" data-name="u1387806163" target="_blank">u1387806163</a>  <span class="label label-success role">新手上路</span></span>
-                        <a rel="twipsy" title="评论于：三阿里系员工进军拼车服务" target="_blank" href="/p/208624.html" class="right cmt">哟西。推广去切车友群吧。再就是约炮的点。。不过，政府关系得搞好呀。不然就换种形式不要直付费了，搞油卡积分或里程积分兑换吧。政府关系搞不好说你黑车就是黑车 </a>
-        </li> 
-        <li class="active">
-                <a class="ulink" target="_blank" title="高卫" data-card = "/cards/u1356416380/popover.html" href="/u1356416380"><img alt="高卫" class="uface img-rounded" src="http://a.36krcnd.com/user/big_avatar/16845.jpeg!avatar?timestamp=1374154585" style="width:48px;height:48px;" title="高卫" /></a>
-                <span class="commentor"><a href="/u1356416380" class="uname user_u1356416380" data-name="高卫" target="_blank">高卫</a>  <span class="label label-success role">特约作者</span></span>
-                        <a rel="twipsy" title="评论于：一场越狱引发的血案" target="_blank" href="/p/208621.html" class="right cmt">好像搞得都不知道91没有盗版似的, 这事之所以那么大, 就一点, 源头干掉, 然后利益方各大关联小弟发威了 </a>
-        </li> 
-        <li class="active">
-                <a class="ulink" target="_blank" title="u1387784892" data-card = "/cards/u1387784892/popover.html" href="/u1387784892"><img class="uface img-rounded" src="http://qzapp.qlogo.cn/qzapp/100289813/FC9AD473B466F660A3957E4EF00CB116/100" style="width:48px;height:48px;" /></a>
-                <span class="commentor"><a href="/u1387784892" class="uname user_u1387784892" data-name="u1387784892" target="_blank">u1387784892</a>  <span class="label label-success role">新手上路</span></span>
-                        <a rel="twipsy" title="评论于：IT人做教育的优势（2）" target="_blank" href="/p/202222.html" class="right cmt">教育包括教，学，考等等，题库从“考”这个方面入手，也是对在线教育的一种有益探索 </a>
-        </li> 
-   <a class="pull-right" href="/comment?sort=hot">更多精彩评论...</a>
-  </ul>
-</div>
-          
-          
-          <div class="cnt sep20">
-                <a href="http://cnrdn.com/ERoC" target="_blank" title="三星 Note10.1"><img alt="三星 Note10.1" height="280" src="http://a.36krcnd.com/poster/cb0872122511eeb0e2ab97a2da2374a5.jpg" width="280" /></a>
-
+          </div><!--row-fluid feature_topics-->
+      
+          <div class="row-fluid k815_posts">
+            <div class="span6">
+              <ul>
+                <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new1</a></li>
+                <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new2</a></li>
+                <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new3</a></li>
+                <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new4</a></li>
+                <li> › <a href="#" data-no-turbolink="true" target="_blank" title="new1">new5</a></li>
+              </ul>
+            </div>
           </div>
-          <h6 class="sidebar_title sep10">友情链接</h6>
- <ul class="unstyled">
-  <li><a ref="nofollow" href="http://sh.qihoo.com" target="_blank" ref="nofollow"><img src="http://a.36krcnd.com/photo/7620d3e17385064d500ab3993d004cb3.jpg!w1" alt="360新闻"></a></li>
-</ul>
-<h6 class="sidebar_title sep10">合作伙伴<small>（合作联系 tips+srv#36kr.com）</small></h6>
-<div class="pull-right powered_by">
-   <a ref="nofollow" class="pull-right" href="https://www.dnspod.cn/Event/Year2013?from=36Kr" title="DNSPod-免费智能DNS解析服务商" target="_blank"><img width="102" height="32" alt="DNSPod-免费智能DNS解析服务商" src="http://a.36krcnd.com/photo/40e8bc121ff06a1a6b71918a38f9e2f0.png" style="width: 102; height: 32px;" title="DNSPod-免费智能DNS解析服务商"></a><a ref="nofollow" class="pull-right" target="_blank" title="腾讯云" href="http://yun.qq.com/"><img width="102" height="32" title="腾讯云" style="width: 102; height: 32px;" src="http://a.36krcnd.com/photo/63c936620249797e96a4ff00beab1b46.png" alt="腾讯云"></a><a ref="nofollow" class="pull-right sep10" target="_blank" title="青云" href="http://www.qingcloud.com/"><img width="102" height="32" title="青云" style="width: 100; height: 30px;" src="http://a.36krcnd.com/photo/1d5b021c0372def9158bcdb3eda3572e.gif" alt="青云"></a><a ref="nofollow" class="pull-right powered_by_grancloud sep10" target="_blank" title="盛大云计算" href="http://www.grandcloud.cn/"><img width="102" height="32" title="盛大云计算" style="width: 102; height: 32px;" src="http://a.36krcnd.com/photo/4438fe10f75466abe2929aeaf5ee6d77.gif" alt="盛大云计算"></a>
-  <a ref="nofollow" class="pull-right sep15" href="https://www.upyun.com/?md=36kr" title="图片存储由又拍云提供" target="_blank"><img width="160" height="35" alt="图片存储由又拍云提供" src="http://a.36krcnd.com/photo/15da33fd5db0a461cc4ca122fd5f89e1.jpg" style="width: 160; height: 35px;" title="图片存储由又拍云提供"></a></div>
-        </div>
-    </div>
-    <div id="footer" class="row-fluid hidden-phone" style="color: #cdcdcd; margin-top: 30px; padding-top:10px; border-top: 5px solid #286BA7">
-<div class="span10 blogContent">©2011-2012 36氪 | 本站由<a class="muted" ref="nofollow" href="http://webluker.com/" target="_blank" title="网站加速-DNS解析-网站监控"> WebLuker </a>提供 CDN 加速服务，开发协作工具由 <a  class="muted" target="_blank" title="新型团队协作工具" ref="nofollow" href="https://pragmatic.ly/?utm_source=kr36">Pragmatic.ly</a> 提供 <br><a href="/about">关于</a> | <a href="/joinus">加入36氪</a> | <a href="/contact-us">联系我们</a> | <a href="http://www.36kr.net/report" target="_blank">寻求报道</a> | <i class="icon-mobile-phone"></i> <a href="/ios">iOS 客户端</a> |<a href="/sub/">订阅</a> <a href="/site_map.xml"> </a><br> 
-京ICP备11027501号 京公网安备11010802012285号</div>
-        <div class="span2 powered_by">
-                <a class="pull-right powered_by_rubychina" target="_blank" title="Ruby China" href="http://ruby-china.org/"><img width="32" height="32" title="Ruby China" style="width: 32; height: 32px;" src="http://a.36krcnd.com/photo/838b2c4beccdb67c78411b82051e8ebd.png" alt="Ruby China"></a>
-        </div>
-</div>
+          <div class="muted k815_sep"><div class="pull-right">查看更多<a href="/815"># 八点一氪 #</a></div></div>
+          <div class="kr_tips sep5">9秒开源游戏世界, 你的时代!<a href="#">查看相关文章</a></div>
+      
+          <h2 class="sep10">最新游戏</h2>
+      
+        </div><!--span8-->
+      
+        <!--热门游戏资讯-->
+        <div class="span4 krSide">
+          <div class="popular_post_today" data-step="7" data-intro="查看当前热门游戏资讯">
+            <h6 class="sidebar_title">热门游戏资讯</h6>
+            <div class="high_likes_topics">
+              <ul>
+                <li class="shadow-box">
+                  <a href="#" data-no-turbolink="ture" rel="twipsy" target="_blank" title="资讯1">资讯1</a>
+                </li>
+              </ul>
+            </div>
+            <div class="cnt magb10">
+              <a href="#" target="_blank" title="广告1"><img alt="广告1" height="90" src="" width="280" /></a>
+            </div>
+          </div><!--popular_post_today-->
+        </div><!--span4 krSide-->
+        <!--热门游戏资讯-->
+      
+      </div><!--row-fluid-->
+      <!--/精品推荐-->
 
-</div>
+      <div class="row-fluid">
+        <div class="span8 krContent">
+      
+          <!--最新游戏-->
+          {% for game in games %}
+          <div class="row-fluid blogPost cn-startups">
+            <div class="left_info pull-left hidden-phone span4">
+              <div class="feature_img row-fluid">      
+                <a href="#"><img alt="{{ game.name }}" height="200" src="{{ game.image.url }}" width="320" /></a>
+              </div>
+              <div class="share_btn sep10" data-step="5" data-intro="快速分享到微博">
+                <wb:publish toolbar="face,topic" button_type="red" button_size="middle" default_text="#default_text" button_text="分享 / 13人"  default_image="{{ game.image.url }}" ></wb:publish>            
+              </div>
+            </div><!--left_info pull-left hidden-phone span4-->
+            <div class="right_info span8 pull-right magb30 sep-5">
+              <div class="summary">    
+                <h4><a href="#" data-no-turbolink="true" target="_blank" title="{{ game.name }}">{{ game.name }}</a></h4>
+                <div class="post_meta sep5 muted"><a href="/somebody" class="uname user_S_somebodys" data-name="某人" target="_blank">某人</a> • <a href="#" target="_blank">某游戏公司</a> • <abbr class="timeago" title="timezone"></abbr> • 暂无评论
+                </div>
+                <div class="excerpt sep-5">
+                  <p>{{ game.descriptions }}</p>
+                  <div class="post_meta sep-10 muted">
+                    <a class="pull-right sep-5"><a title="点击阅读全文(字)" class="pull-right" href="#" >继续阅读 <i class="icon-double-angle-right"></i></a>
+                  </div>
+                </div>
+              </div><!--summary-->
+            </div><!--right_info span8 pull-right magb30 sep-5-->
+          </div><!--row-fluid blogPost cn-startups-->
+          {% endfor %}
+          <!--/最新游戏-->
+      
+          <!--pagination-->
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="pagination">
+                <ul>
+                  <li class="prev previous_page disabled"><a href="#">&#8592; 上一页</a></li>
+                  <li class="active"><a rel="start" href="/?page=1">1</a></li>
+                  <li><a rel="next" href="/?page=2">2</a></li>
+                  <li><a href="/?page=3">3</a></li>
+                  <li><a href="/?page=4">4</a></li>
+                  <li><a href="/?page=5">5</a></li>
+                  <li class="disabled"><a href="#"><span class="gap">&hellip;</span></a></li>
+                  <li><a href="/?page=99">99</a></li>
+                  <li><a href="/?page=100">100</a></li>
+                  <li class="next next_page "><a rel="next" href="/?page=2">下一页 &#8594;</a></li>
+                </ul>
+              </div><!--pagination-->
+            </div><!--span12-->
+          </div><!--row-fluid-->
+          <!--/pagination-->
+      
+        </div><!--span8 krContent-->
+        <div class="span4 krSide sep10">
+      
+          <!--赞助商链接-->
+          <div class="wxlist clearfix">
+            <h6 class="sidebar_title btn-block">赞助商链接</h6>
+            <ul>
+              {% for sponsor in sponsoies%}
+              <li>
+                <div class="pull-right">
+                  <a target="_blank" ref="nofollow" href="{{ sponsor.address }}"><img alt="{{ sponsor.name }}" class="img-rounded" height="60" src="{{ sponsor.image.url }}" width="60"></a>
+                </div>
+                <div>
+                  <a target="_blank" href="{{ sponsor.address }}" title="点击查看全文">{{ sponsor.descriptions }}</a>
+                  <div class="muted">{{ sponsor.name }}</div>
+                </div>
+              </li>
+              {% endfor %}
+            </ul>
+          </div><!--wxlist clearfix--> 
+          <!--/赞助商链接-->
+      
+          <!--广告-->
+          <div class="cnt magb10">
+            <a href="http://cnrdn.com/ZPkC" target="_blank" title="三星新炫刊"><img alt="三星新炫刊" height="280" src="http://a.36krcnd.com/poster/ad9a8249b768ecfcb1ca8613c258ae0a.jpg" width="280" /></a>
+          </div>
+          <!--/广告-->
+      
+          <!--评论-->
+          <div class="high_likes_replys">
+            <h6 class="btn-block sidebar_title">优质评论</h6>
+            <ul class="aside-menu">
+              <li class="active">
+                <a class="ulink" target="_blank" title="评论人" data-card = "/cards/u1356784700/popover.html" href="/u1356784700"><img alt="评论人" class="uface img-rounded" src="http://tp3.sinaimg.cn/2013359925/180/1" style="width:48px;height:48px;" /></a>
+                <span class="commentor"><a href="/u1356784700" class="uname user_u1356784700" data-name="虾叔" target="_blank">评论人</a>  <span class="label label-success role">身份/头衔</span></span>
+                  <a rel="twipsy" title="评论于:Elance和oDesk合并的影响" target="_blank" href="/p/208632.html" class="right cmt">评论内容</a>
+              </li> 
+              <a class="pull-right" href="/comment?sort=hot">更多精彩评论...</a>
+            </ul>
+          </div>
+          <!--/评论-->
+                
+          <!--广告-->
+          <div class="cnt sep20">
+            <a href="http://cnrdn.com/ERoC" target="_blank" title="三星 Note10.1"><img alt="三星 Note10.1" height="280" src="http://a.36krcnd.com/poster/cb0872122511eeb0e2ab97a2da2374a5.jpg" width="280" /></a>
+          </div>
+          <!--/广告-->
+      
+          <!--友情链接-->
+          <h6 class="sidebar_title sep10">友情链接</h6>
+          <ul class="unstyled">
+            <li><a ref="nofollow" href="#" target="_blank" ref="nofollow"><img src="" alt="广告位(120X20)"></a></li>
+          </ul>
+          <!--/友情链接-->
+
+          <!--合作伙伴-->
+          <h6 class="sidebar_title sep10">合作伙伴<small>(合作联系 tips+srv#36kr.com)</small></h6>
+          <div class="pull-right powered_by">
+            <a ref="nofollow" class="pull-right" href="#" title="合作伙伴1" target="_blank">
+              <img width="102" height="32" alt="合作伙伴1(logo)" src="" style="width: 102; height: 32px;" title="合作伙伴1"></a>
+            <a ref="nofollow" class="pull-right" target="_blank" title="合作伙伴2" href="#">
+              <img width="102" height="32" title="合作伙伴2" style="width: 102; height: 32px;" src="" alt="合作伙伴2(logo)"></a>
+            <a ref="nofollow" class="pull-right sep10" target="_blank" title="合作伙伴3" href="#">
+              <img width="102" height="32" title="合作伙伴3" style="width: 100; height: 30px;" src="" alt="合作伙伴3(logo)"></a>
+            <a ref="nofollow" class="pull-right powered_by_grancloud sep10" target="_blank" title="合作伙伴4" href="#">
+              <img width="102" height="32" title="合作伙伴4" style="width: 102; height: 32px;" src="" alt="合作伙伴4(logo)"></a>
+            <a ref="nofollow" class="pull-right sep15" href="#" title="合作伙伴5" target="_blank">
+              <img width="160" height="35" alt="合作伙伴5(logo)" src="" style="width: 160; height: 35px;" title="合作伙伴5"></a>
+          </div>
+          <!--/合作伙伴-->
+        </div><!--span4 krSide sep10-->
+      </div><!--row-fluid-->
+
+      <!--footer-->
+      <div id="footer" class="row-fluid hidden-phone" style="color: #cdcdcd; margin-top: 30px; padding-top:10px; border-top: 5px solid #286BA7">
+        <div class="span10 blogContent">©2011-2012 36氪 | 本站由
+          <a class="muted" ref="nofollow" href="http://webluker.com/" target="_blank" title="网站加速-DNS解析-网站监控"> WebLuker </a>
+          提供 CDN 加速服务，开发协作工具由
+          <a class="muted" target="_blank" title="新型团队协作工具" ref="nofollow" href="https://pragmatic.ly/?utm_source=kr36">Pragmatic.ly</a>
+          提供<br />
+          <a href="/about">关于</a>|
+          <a href="/joinus">加入36氪</a>|
+          <a href="/contact-us">联系我们</a>|
+          <a href="http://www.36kr.net/report" target="_blank">寻求报道</a>|
+          <i class="icon-mobile-phone"></i>
+          <a href="/ios">iOS 客户端</a>|
+          <a href="/sub/">订阅</a>
+          <a href="/site_map.xml"> </a><br> 
+          京ICP备11027501号 京公网安备11010802012285号
+        </div>
+        <div class="span2 powered_by">
+          <a class="pull-right powered_by_rubychina" target="_blank" title="Ruby China" href="http://ruby-china.org/">
+            <img width="32" height="32" title="Django" style="width: 32; height: 32px;" src="" alt="Django"></a>
+        </div>
+      </div>
+      <!--/footer-->
+
+    </div><!--span10 content borBox pull-right-->
 
  
     <!--left-->
@@ -370,9 +364,9 @@ window.top.location = '/ie6';
             </li>
           </ul>
           <hr class="krhr_nav">
-        </ul><!--ul data-spy="affix" class="affix side_nav">-->
+        </ul><!--data-spy="affix" class="affix side_nav">-->
       </nav>
-    </div>    
+    </div><!--row-fluid-->
   </section>   
 <a class="go_top hidden hidden-phone" href="#top" style="display: inline; "><i class="icon icons_go_top"></i></a>
 
