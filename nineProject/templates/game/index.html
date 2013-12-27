@@ -159,7 +159,7 @@
         </div>
         <div class="col-md-5">
           {% if game.thumbnail%}
-          <a href="{% url 'game:show' game.title%}"><img class="featurette-image img-responsive" src="{{ game.thumbnail.url }}" alt="Generic placeholder image" width="300" height="200"></a>
+          <a href="{% url 'game:show' game.title %}"><img class="featurette-image img-responsive" src="{{ game.thumbnail.url }}" alt="Generic placeholder image" width="300" height="200"></a>
           {% else %}
           <a href="{% url 'game:show' game.title%}"><img class="featurette-image img-responsive" src="{% static 'game/300X200.png' %}" alt="Generic placeholder image" width="300" height="200"></a>
           {% endif %}
