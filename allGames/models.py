@@ -16,3 +16,12 @@ class Sponsor(models.Model):
 
     def __unicode__(self):
         return self.name
+
+class Recommend(models.Model):
+    name = models.CharField(max_length=200)
+    descriptions = models.TextField(blank=True)
+    image = models.ImageField(upload_to='allGames', null=True, blank=True)
+    pub_date = models.DateTimeField('date published')
+
+    def __unicode__(self):
+        return self.name

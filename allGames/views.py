@@ -1,8 +1,10 @@
 from django.shortcuts import render_to_response
-from allGames.models import Game, Sponsor
+from allGames.models import Game, Sponsor, Recommend
 from django.core.paginator import PageNotAnInteger, Paginator, InvalidPage, EmptyPage
+from django.contrib import auth
 
 def index(request):
+    recommends = Recommend.objects.order_by('pub_date')[:3]
     games = Game.objects.order_by('name')
 
     page = int(request.GET.get('page', 1))
@@ -32,3 +34,13 @@ def show(request, game_pk):
     game = Game.objects.get(pk=game_pk)
 
     return render_to_response('allGames/show.html', locals())
+
+def login(request):
+    username = request.POST.get('username', '')
+    password = request.POST.get('password', '')
+    user = auth.authenticate(username=username, password=password)
+    if user is not None and user.is_active:
+        auth.login(request, user)
+        return HttpResponseRedirect("/account/loggedin/")
+    else:
+        return HttpResponseRedirect("/account/invalid/")

@@ -2,83 +2,59 @@
 
 {% block content %}
       <div class="row-fluid phone_banner">
-        <div class="span8 hidden-phone" role="banner">
+        <div class="span12 hidden-phone" role="banner">
           {% load staticfiles %}
-          <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height="80" src="{% static 'allGames/fakegif.png' %}" width="670" /></a>
-        </div>
-        <div class="span4" style="height: 80px;" data-step="8" data-intro="登入9秒, 发表评论, 收藏游戏">
-          <div class="visible-phone phone_logo">
-          </div>
-          <ul class="user_nav" id="userbar">
-            <li class="first last"><a href="{% url 'allGames:login' %}" class="hidden-phone btn btn-danger pull-right" data-no-turbolink="true">登录</a></li>
-         </ul>
+          <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height="80" src="{% static 'allGames/fakegif.png' %}" /></a>
         </div>
       </div><!--row-fluid phone_banner-->
 
-      <div class="nav_links row-fluid">
-        <div class="span8">
-          <a href="{% url 'allGames:login' %}" class="visible-phone phone_login_link" data-no-turbolink="true">登录</a>
-        </div><!--span8-->
+      <br />
+      <br />
+      <br />
+      <br />
 
-        <!--search-->
-        <div class="span4"><form action="/search/" method="get" class="form form-search">
-          <div class="row-fluid hidden-phone">
-            <div class="input-append ">
-              <button class="btn btn-primary span2 pull-right" style="width:18%"><i class="icon-search"></i></button>
-              <input type="text" name="q" id="avnpc-form-searchform-q" class="search-query span10  validate[required]" placeholder="搜索" value="">
-            </div>
-          </div><!--row-fluid hidden-phone-->
-        </form></div><!--span4-->
-        <!--/search-->
-      </div><!--nav_links row-fluid-->
-
-      <div class="pull-right sep10 span4">
-        <div class="cnt sep5">
-          <a rel="twipsy" title="信息反馈通道"  target="_blank" href="#" class="pull-right">联系我们</a>
-        </div>
-      </div>
       <h2 class="sep5">精品推荐</h2>
 
-      <!--精品推荐-->
+      <!--recommend-->
       <div class="row-fluid">
-        <div class="span8">
+        <div class="span12">
 
           <div class="row-fluid feature_topics">
-          {% for game in games %}
+          {% for game in recommends %}
             <div class="view_208622 span4 feature_img">
               <a href="#"><img src="{{ game.image.url }}" alt="专栏"></a>
-              <div class="sep5">
+              <div class="sep5 span8">
                 <h4><a href="/p/208622.html?vt=0" rel="twipsy" title="{{ game.name }}">{{ game.name }}</a></h4>
               </div>
             </div>
           {% endfor %}
           </div><!--row-fluid feature_topics-->
-      
+
           <div class="kr_tips sep5">更多精彩,9秒开源游戏世界!<a target="_blank" href="http://www.9miao.com/"> 进入论坛</a></div>
           <h2 class="sep10">最新游戏</h2>
         </div><!--span8-->
       </div><!--row-fluid-->
-      <!--/精品推荐-->
+      <!--/recommend-->
 
       <div class="row-fluid">
-        <div class="span8 krContent">
+        <div class="span12 krContent">
       
-          <!--最新游戏-->
+          <!--new game-->
           {% for game in game_list.object_list %}
           <div class="row-fluid blogPost cn-startups">
-            <div class="left_info pull-left hidden-phone span4">
+            <div class="left_info pull-left hidden-phone span3">
               <div class="feature_img row-fluid">      
                 <a href="{% url 'allGames:show' game.pk %}"><img alt="{{ game.name }}" height="200" src="{{ game.image.url }}" width="320" /></a>
               </div>
             </div><!--left_info pull-left hidden-phone span4-->
-            <div class="right_info span8 pull-right magb30 sep-5">
+            <div class="right_info span9 pull-right magb30 sep-5">
               <div class="summary">    
                 <h4><a href="{% url 'allGames:show' game.pk %}" data-no-turbolink="true" target="_blank" title="{{ game.name }}">{{ game.name }}</a></h4>
                 <div class="post_meta sep5 muted">
                   <a href="#" target="_blank">某游戏公司</a>
                 </div>
                 <div class="excerpt sep-5">
-                  <p>{{ game.descriptions|slice:" 100" }}...</p>
+                  <p>{{ game.descriptions|slice:" 150" }}...</p>
                   <div class="post_meta sep-10 muted">
                     <a class="pull-right sep-5">
                       <a title="点击阅读全文(字)" class="pull-right" href="{% url 'allGames:show' game.pk %}" >继续阅读 
@@ -91,11 +67,11 @@
             </div><!--right_info span8 pull-right magb30 sep-5-->
           </div><!--row-fluid blogPost cn-startups-->
           {% endfor %}
-          <!--/最新游戏-->
+          <!--/new game-->
       
           <!--pagination-->
           <div class="row-fluid">
-            <div class="span12">
+            <div class="span8">
               <div class="pagination">
                 <ul>
                   {% if game_list.has_previous %}
