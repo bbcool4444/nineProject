@@ -1,0 +1,76 @@
+{% extends "allGames/base.html" %}
+{% load comments %}
+
+{% block content%}
+      <div class="well well-small">
+      <ul class="breadcrumb">
+        <li><a href="{% url 'allGames:index' %}">Home</a><span class="divider">/</span></li>
+        <li class="active">{{ game.name }}</li>
+      </ul>
+      </div>
+
+      <div class="jumbotron">
+        <h1>{{ game.name }}</h1>
+        {% load staticfiles %}
+        {% if game.image %}
+        <p><img src =" {% static game.image.url %}" alt="game image" /></p>
+        {% endif %}
+        <p class="lead">{{ game.descriptions }}</p>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>下载</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>推荐配置</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>最低配置</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>源码</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+      {% get_comment_list for game as comment_list %}
+      {% for comment in comment_list %}
+      <div class="comment">
+        <p>评论人:<b>{{ comment.user.username }}</b>&nbsp;&nbsp;&nbsp;
+        评论时间:{{ comment.submit_date|date:"Y-m-d H:i" }}&nbsp;&nbsp;&nbsp;
+        地址:{{ comment.ip_address }}</p>
+      {{ comment.comment|urlizetrunc:400|linebreaks}}
+      </div>
+      {% endfor %}
+
+      <div id="commentform">
+        <h2>comment</h2>
+        {% get_comment_form for game as form %}
+        <form action="comment/post/" method="post">
+          {% csrf_token %}
+          {{ form.object_pk }}
+          {{ form.content_type }}
+          {{ form.timestamp }}
+          {{ form.security_hash }}
+          <p><label for="id_name">姓名(必填):</p></label><input name="name" id="id_name"></p>
+          <p><label for="id_email">邮箱(必填):</label><input name="email" id="id_email"></p>
+          <p><label for="id_url">网站(可选):</label><input name="url" id="id_url"></p>
+          <p><label for="id_comment">评论(必填):</label></p>
+          <p><textarea id="id_comment" row="10" cols="40" name="comment"></textarea></p>
+          <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label><input type="text" name="honeypot" id="id_honeypot"></p>
+          <p><input name="post" value="发表" type="submit" /></p>
+          <input type="hidden" name="next" value="{% url 'allGames:post' %}" />
+        </form>
+         
+      </div>
+
+{% endblock %}

@@ -44,3 +44,11 @@ def login(request):
         return HttpResponseRedirect("/account/loggedin/")
     else:
         return HttpResponseRedirect("/account/invalid/")
+
+def comments(request):
+    games = Game.objects.all()
+
+    return render_to_response('allGames/comment_detail.html', locals())
+
+def post(request):
+    return render_to_response('comments/posted.html', locals())

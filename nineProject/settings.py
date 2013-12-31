@@ -27,6 +27,8 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
+
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # Application definition
@@ -39,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django.contrib.comments',
+    'django_comments',
     'game',
     'allGames',
     'south',
@@ -48,7 +50,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
