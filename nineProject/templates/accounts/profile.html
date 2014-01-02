@@ -1,0 +1,6 @@
+{% extends "allGames/base.html" %}
+
+{% block content %}
+  <h1>Profile for {{ user }}</h1>
+  <p>your ip address: {{ request.META.REMOTE_ADDR }}</p>
+{% endblock %}

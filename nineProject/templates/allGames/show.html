@@ -2,23 +2,20 @@
 {% load comments %}
 
 {% block content%}
-      <div class="well well-small">
-      <ul class="breadcrumb">
-        <li><a href="{% url 'allGames:index' %}">Home</a><span class="divider">/</span></li>
-        <li class="active">{{ game.name }}</li>
-      </ul>
-      </div>
-
-      <div class="jumbotron">
+      <div class="jumbotron container">
         <h1>{{ game.name }}</h1>
         {% load staticfiles %}
         {% if game.image %}
-        <p><img src =" {% static game.image.url %}" alt="game image" /></p>
+        <p><img class="pull-left" src =" {% static game.image.url %}" alt="game image" /></p>
         {% endif %}
         <p class="lead">{{ game.descriptions }}</p>
       </div>
 
-      <div class="row marketing">
+      <ul class="nav nav-list">
+        <li class="divider"></li>
+      </ul>
+
+      <div class="row marketing container">
         <div class="col-lg-6">
           <h4>下载</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -55,7 +52,7 @@
       <div id="commentform">
         <h2>comment</h2>
         {% get_comment_form for game as form %}
-        <form action="comment/post/" method="post">
+        <form action="{% url 'allGames:post' %}" method="post">
           {% csrf_token %}
           {{ form.object_pk }}
           {{ form.content_type }}
@@ -66,8 +63,9 @@
           <p><label for="id_url">网站(可选):</label><input name="url" id="id_url"></p>
           <p><label for="id_comment">评论(必填):</label></p>
           <p><textarea id="id_comment" row="10" cols="40" name="comment"></textarea></p>
-          <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容，那么你的评论就会被视为垃圾评论。</label><input type="text" name="honeypot" id="id_honeypot"></p>
+          <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容,那么你的评论就会被视为垃圾评论.</label><input type="text" name="honeypot" id="id_honeypot"></p>
           <p><input name="post" value="发表" type="submit" /></p>
+          <input type="hidden" name="game_name" value="{{ game.name }}" />
           <input type="hidden" name="next" value="{% url 'allGames:post' %}" />
         </form>
          

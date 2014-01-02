@@ -1,7 +1,10 @@
 from django.shortcuts import render_to_response
-from allGames.models import Game, Sponsor, Recommend
 from django.core.paginator import PageNotAnInteger, Paginator, InvalidPage, EmptyPage
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib import auth
+from django.http import HttpResponseRedirect
+from django.template import RequestContext
+from allGames.models import Game, Sponsor, Recommend, Comment
 
 def index(request):
     recommends = Recommend.objects.order_by('pub_date')[:3]
@@ -35,20 +38,28 @@ def show(request, game_pk):
 
     return render_to_response('allGames/show.html', locals())
 
-def login(request):
-    username = request.POST.get('username', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(username=username, password=password)
-    if user is not None and user.is_active:
-        auth.login(request, user)
-        return HttpResponseRedirect("/account/loggedin/")
-    else:
-        return HttpResponseRedirect("/account/invalid/")
-
 def comments(request):
     games = Game.objects.all()
 
     return render_to_response('allGames/comment_detail.html', locals())
 
 def post(request):
+    user = request.POST['name']
+    game = Game.objects.get(name=request.POST['game_name'])
+    context = request.POST['comment']
+    comment = Comment(user=user, game=game, context=context)
+
     return render_to_response('comments/posted.html', locals())
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            new_user = form.save()
+            return HttpResponseRedirect("/allGames/")
+    else:
+        form = UserCreationForm()
+    return render_to_response('registration/register.html', {'form': form})
+
+def profile(request):
+    return render_to_response('accounts/profile.html', locals(), context_instance=RequestContext(request))
