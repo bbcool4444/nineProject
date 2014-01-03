@@ -47,7 +47,8 @@ def post(request):
     user = request.POST['name']
     game = Game.objects.get(name=request.POST['game_name'])
     context = request.POST['comment']
-    comment = Comment(user=user, game=game, context=context)
+    comment = Comment(user=user, game=game, comment=context)
+    comment.save()
 
     return render_to_response('comments/posted.html', locals())
 
