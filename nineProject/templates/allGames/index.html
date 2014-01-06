@@ -1,17 +1,6 @@
 {% extends "allGames/base.html" %}
 
 {% block content %}
-      <div class="row-fluid phone_banner">
-        <div class="span12 hidden-phone" role="banner">
-          {% load staticfiles %}
-          <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height="80" src="{% static 'allGames/fakegif.png' %}" /></a>
-        </div>
-      </div><!--row-fluid phone_banner-->
-
-      <br />
-      <br />
-      <br />
-      <br />
 
       <h2 class="sep5">精品推荐</h2>
 
@@ -23,7 +12,7 @@
           {% for game in recommends %}
             <div class="view_208622 span4 feature_img">
               <a href="#"><img src="{{ game.image.url }}" alt="专栏"></a>
-              <div class="sep5 span8">
+              <div class="sep5 span12">
                 <h4><a href="/p/208622.html?vt=0" rel="twipsy" title="{{ game.name }}">{{ game.name }}</a></h4>
               </div>
             </div>
@@ -71,7 +60,7 @@
       
           <!--pagination-->
           <div class="row-fluid">
-            <div class="span8 pull-right">
+            <div class="offset3">
               <div class="pagination">
                 <ul>
                   {% if game_list.has_previous %}

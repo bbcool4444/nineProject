@@ -1,3 +1,5 @@
+#-*- coding:utf-8 -*-
+
 from django.shortcuts import render_to_response
 from django.core.paginator import PageNotAnInteger, Paginator, InvalidPage, EmptyPage
 from django.contrib.auth.forms import UserCreationForm
@@ -5,6 +7,7 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from allGames.models import Game, Sponsor, Recommend, Comment
+import datetime
 
 def index(request):
     recommends = Recommend.objects.order_by('pub_date')[:3]
@@ -31,10 +34,12 @@ def index(request):
     else:
         page_range = paginator.page_range[0:int(page)+before_range_num]
 
-    return render_to_response('allGames/index.html', locals())
+    return render_to_response('allGames/index.html', locals(), context_instance=RequestContext(request))
 
 def show(request, game_pk):
     game = Game.objects.get(pk=game_pk)
+    comments = game.comment_set.all()
+    current_page = game.name
 
     return render_to_response('allGames/show.html', locals())
 
@@ -44,15 +49,21 @@ def comments(request):
     return render_to_response('allGames/comment_detail.html', locals())
 
 def post(request):
-    user = request.POST['name']
-    game = Game.objects.get(name=request.POST['game_name'])
+    user = request.POST.get('name', '')
+    game = Game.objects.get(name=request.POST.get('game_name', ''))
     context = request.POST['comment']
-    comment = Comment(user=user, game=game, comment=context)
+    comment = Comment(user=user, game=game, comment=context, pub_date=datetime.datetime.now())
+
     comment.save()
 
-    return render_to_response('comments/posted.html', locals())
+    current_url = request.path
+
+    #return HttpResponseRedirect('/allGames/3/show/')
+    return HttpResponseRedirect(request.POST['next'])
 
 def register(request):
+    current_page = '注册'
+
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
@@ -60,7 +71,7 @@ def register(request):
             return HttpResponseRedirect("/allGames/")
     else:
         form = UserCreationForm()
-    return render_to_response('registration/register.html', {'form': form})
+    return render_to_response('registration/register.html', {'form': form, 'current_page': current_page})
 
 def profile(request):
     return render_to_response('accounts/profile.html', locals(), context_instance=RequestContext(request))

@@ -2,11 +2,11 @@
 {% load comments %}
 
 {% block content%}
-      <div class="jumbotron container">
+      <div class="row-fluid">
         <h1>{{ game.name }}</h1>
         {% load staticfiles %}
         {% if game.image %}
-        <p><img class="pull-left" src =" {% static game.image.url %}" alt="game image" /></p>
+        <img class="pull-left" src="{% static game.image.url %}" alt="game image" />
         {% endif %}
         <p class="lead">{{ game.descriptions }}</p>
       </div>
@@ -15,7 +15,7 @@
         <li class="divider"></li>
       </ul>
 
-      <div class="row marketing container">
+      <div class="row-fluid marketing ">
         <div class="col-lg-6">
           <h4>下载</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -39,18 +39,26 @@
         </div>
       </div>
 
-      {% get_comment_list for game as comment_list %}
-      {% for comment in comment_list %}
-      <div class="comment">
-        <p>评论人:<b>{{ comment.user.username }}</b>&nbsp;&nbsp;&nbsp;
-        评论时间:{{ comment.submit_date|date:"Y-m-d H:i" }}&nbsp;&nbsp;&nbsp;
-        地址:{{ comment.ip_address }}</p>
-      {{ comment.comment|urlizetrunc:400|linebreaks}}
-      </div>
+      {% for comment in comments %}
+        <ul class="nav nav-list">
+          <li class="divider"></li>
+        </ul>
+
+        <div class="comment">
+          <p>{{ forloop.counter }}楼:
+          <b>{{ comment.user }}</b>&nbsp;&nbsp;&nbsp;
+          发表于 {{ comment.pub_date|date:"Y-m-d H:i" }}&nbsp;&nbsp;&nbsp;
+          来自: {{ request.META.REMOTE_ADDR }}</p>
+        {{ comment.comment|urlizetrunc:400|linebreaks}}
+        </div>
       {% endfor %}
 
+      <ul class="nav nav-list">
+        <li class="divider"></li>
+      </ul>
+
       <div id="commentform">
-        <h2>comment</h2>
+        <h2>评论</h2>
         {% get_comment_form for game as form %}
         <form action="{% url 'allGames:post' %}" method="post">
           {% csrf_token %}
@@ -58,15 +66,14 @@
           {{ form.content_type }}
           {{ form.timestamp }}
           {{ form.security_hash }}
-          <p><label for="id_name">姓名(必填):</p></label><input name="name" id="id_name"></p>
-          <p><label for="id_email">邮箱(必填):</label><input name="email" id="id_email"></p>
-          <p><label for="id_url">网站(可选):</label><input name="url" id="id_url"></p>
-          <p><label for="id_comment">评论(必填):</label></p>
+          <p><nobr><asp:label for="id_name">姓名(必填):</label></nobr><input name="name" id="id_name" /></p>
+          <p><nobr><asp:label for="id_email">邮箱(必填):</label></nobr><input name="email" id="id_email"></p>
+          <p><nobr><asp:label for="id_url">网站(可选):</label></nobr><input name="url" id="id_url"></p>
           <p><textarea id="id_comment" row="10" cols="40" name="comment"></textarea></p>
           <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容,那么你的评论就会被视为垃圾评论.</label><input type="text" name="honeypot" id="id_honeypot"></p>
           <p><input name="post" value="发表" type="submit" /></p>
           <input type="hidden" name="game_name" value="{{ game.name }}" />
-          <input type="hidden" name="next" value="{% url 'allGames:post' %}" />
+          <input type="hidden" name="next" value="{{ request.path }}" />
         </form>
          
       </div>

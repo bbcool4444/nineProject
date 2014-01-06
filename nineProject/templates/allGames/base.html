@@ -31,17 +31,29 @@ window.top.location = '/ie6';
 <body>
 <div class="frontLayer onDesktop">
   <section class="row-fluid" id="mainContainer">
-    <div class="span10 content borBox pull-right">
+    <div class="span8 offset2 content borBox">
       <!--navigation-->
       <ol class="breadcrumb">
-        <li><a href="{% url 'allGames:index' %}">Home</a>
-        <li class="active">{{ game.name }}</li>
+        <li><a href="{% url 'allGames:index' %}">首页</a>
+        <li class="active">{{ current_page }}</li>
       </ol>
+
+      <div class="row-fluid phone_banner">
+        <div class="span12 hidden-phone" role="banner">
+          {% load staticfiles %}
+          <a href="http://cnrdn.com/BkoC" target="_blank" title="9秒开源游戏"><img alt="9秒开源游戏" height    ="80" src="{% static 'allGames/fakegif.png' %}" /></a>
+        </div>
+      </div><!--row-fluid phone_banner-->
+
       <!--/navigation-->
       <nav class="navbar" role="navigation">
         <div class="navbar-header pull-right" >
+        {% if user %}
+          <p>{{ user }}</p>
+        {% else %}
           <a class="navbar-brand" href="/accounts/login/">登陆</a>
           <a class="navbar-brand" href="/accounts/register/">注册</a>
+        {% endif %}
         </div>
       </nav>
 
@@ -67,7 +79,7 @@ window.top.location = '/ie6';
 
     <!--left-->
     <div class="row-fluid">
-      <nav style="margin-top:-25px;" class="sideBar hidden-phone pull-left">
+      <nav style="margin-top:-25px;" class="sideBar hidden-phone">
         <ul data-spy="affix" class="affix side_nav">
           <li><figure>
             <h1>
