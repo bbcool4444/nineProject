@@ -16,7 +16,7 @@ urlpatterns = patterns('',
     url(r'^game/', include('game.urls', namespace='game')),
     url(r'^allGames/', include('allGames.urls', namespace='allGames')),
     url(r'^accounts/login', login),
-    url(r'^accounts/logout', logout),
+    url(r'^accounts/logout', logout, name='logout'),
     url(r'^accounts/profile', views.profile),
     url(r'^accounts/register', views.register),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

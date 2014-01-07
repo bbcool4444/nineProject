@@ -48,11 +48,13 @@ window.top.location = '/ie6';
       <!--/navigation-->
       <nav class="navbar" role="navigation">
         <div class="navbar-header pull-right" >
-        {% if user %}
-          <p>{{ user }}</p>
+        {% if user.is_authenticated %}
+          当前访客身份:{{ user }}
+          [<a href="{% url 'logout' %}">logout</a>]
         {% else %}
-          <a class="navbar-brand" href="/accounts/login/">登陆</a>
-          <a class="navbar-brand" href="/accounts/register/">注册</a>
+          当前访客身份:游客
+          [<a href="/accounts/login/">登陆</a> |
+          <a href="/accounts/register/">注册</a>]
         {% endif %}
         </div>
       </nav>

@@ -1,5 +1,6 @@
 {% extends "allGames/base.html" %}
 {% load comments %}
+{% load paginator %}
 
 {% block content%}
       <div class="row-fluid">
@@ -8,14 +9,17 @@
         {% if game.image %}
         <img class="pull-left" src="{% static game.image.url %}" alt="game image" />
         {% endif %}
-        <p class="lead">{{ game.descriptions }}</p>
+        <ul class="nav nav-list">
+          <li class="divider"></li>
+        </ul>
+        <p>{{ game.descriptions }}</p>
       </div>
 
       <ul class="nav nav-list">
         <li class="divider"></li>
       </ul>
 
-      <div class="row-fluid marketing ">
+      <div class="row-fluid hero-unit">
         <div class="col-lg-6">
           <h4>下载</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
@@ -39,13 +43,13 @@
         </div>
       </div>
 
-      {% for comment in comments %}
+      {% for comment in comment_list %}
         <ul class="nav nav-list">
           <li class="divider"></li>
         </ul>
 
         <div class="comment">
-          <p>{{ forloop.counter }}楼:
+          <p>{{ forloop.counter|page_count:comment_list.number }}楼:
           <b>{{ comment.user }}</b>&nbsp;&nbsp;&nbsp;
           发表于 {{ comment.pub_date|date:"Y-m-d H:i" }}&nbsp;&nbsp;&nbsp;
           来自: {{ request.META.REMOTE_ADDR }}</p>
@@ -53,9 +57,35 @@
         </div>
       {% endfor %}
 
-      <ul class="nav nav-list">
-        <li class="divider"></li>
-      </ul>
+      {% if not comment_list %}
+          <p>暂无评论</p>
+      {% else %}
+        <div class="pagination offset3">
+          <ul>
+          {% if comment_list.has_previous %}
+            <li class="previous"><a href="?page={{ comment_list.previous_page_number }}">前一页</a></li>
+          {% else %}
+            <li class="previous disalbed"><a>前一页</a></li>
+          {% endif %}
+            {% for p in page_range %}
+              {% ifequal p comment_list.number %}
+                <li class="active"><a>{{ p }}</a></li>
+              {% else %}
+                <li><a href="?page={{ p }}" title="{{ p }} page">{{ p }}</a></li>
+              {% endifequal %}
+            {% endfor %}
+          {% if comment_list.has_next %}
+            <li class="next"><a href="?page={{ comment_list.next_page_number }}">后一页</a></li>
+          {% else %}
+            <li class="next disabled"></a>后一页</a></li>
+          {% endif %}
+          </ul>
+
+          <ul class="nav nav-list">
+            <li class="divider"></li>
+          </ul>
+        </div><!--/pagination-->
+      {% endif %}
 
       <div id="commentform">
         <h2>评论</h2>
@@ -66,9 +96,15 @@
           {{ form.content_type }}
           {{ form.timestamp }}
           {{ form.security_hash }}
-          <p><nobr><asp:label for="id_name">姓名(必填):</label></nobr><input name="name" id="id_name" /></p>
+          {% if user.is_authenticated %}
+            <input type="hidden" name="name" value="{{ user }}" />
+          {% else %}
+            <p><nobr><asp:label for="id_name">姓名(必填):</label></nobr><input name="name" id="id_name" /></p>
+          {% endif %}
+          {% comment %}
           <p><nobr><asp:label for="id_email">邮箱(必填):</label></nobr><input name="email" id="id_email"></p>
           <p><nobr><asp:label for="id_url">网站(可选):</label></nobr><input name="url" id="id_url"></p>
+          {% endcomment %}
           <p><textarea id="id_comment" row="10" cols="40" name="comment"></textarea></p>
           <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容,那么你的评论就会被视为垃圾评论.</label><input type="text" name="honeypot" id="id_honeypot"></p>
           <p><input name="post" value="发表" type="submit" /></p>
