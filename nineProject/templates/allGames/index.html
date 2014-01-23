@@ -33,7 +33,11 @@
           <div class="row-fluid blogPost cn-startups">
             <div class="left_info pull-left hidden-phone span3">
               <div class="feature_img row-fluid">      
+                {% if game.image %} 
                 <a href="{% url 'allGames:show' game.pk %}"><img alt="{{ game.name }}" height="200" src="{{ game.image.url }}" width="320" /></a>
+                {% else %}
+                <a href="{% url 'allGames:show' game.pk %}"><img alt="{{ game.name }}" height="200" width="320" /></a>
+                {% endif %}
               </div>
             </div><!--left_info pull-left hidden-phone span4-->
             <div class="right_info span9 pull-right magb30 sep-5">
@@ -43,7 +47,7 @@
                   <a href="#" target="_blank">某游戏公司</a>
                 </div>
                 <div class="excerpt sep-5">
-                  <p>{{ game.descriptions|slice:" 150" }}...</p>
+                  <p>{{ game.descriptions|safe|slice:" 150" }}...</p>
                   <div class="post_meta sep-10 muted">
                     <a class="pull-right sep-5">
                       <a title="点击阅读全文(字)" class="pull-right" href="{% url 'allGames:show' game.pk %}" >继续阅读 

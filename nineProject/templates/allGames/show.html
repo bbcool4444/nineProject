@@ -1,4 +1,4 @@
-{% extends "allGames/base.html" %}
+{% extends "html_temp/base.html" %}
 {% load comments %}
 {% load paginator %}
 
@@ -12,35 +12,7 @@
         <ul class="nav nav-list">
           <li class="divider"></li>
         </ul>
-        <p>{{ game.descriptions }}</p>
-      </div>
-
-      <ul class="nav nav-list">
-        <li class="divider"></li>
-      </ul>
-
-      <div class="row-fluid hero-unit">
-        <div class="col-lg-6">
-          <h4>下载</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>推荐配置</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>最低配置</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-          <h4>源码</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+        <p>{{ game.descriptions|safe }}</p>
       </div>
 
       {% for comment in comment_list %}
@@ -54,6 +26,18 @@
           发表于 {{ comment.pub_date|date:"Y-m-d H:i" }}&nbsp;&nbsp;&nbsp;
           来自: {{ request.META.REMOTE_ADDR }}</p>
         {{ comment.comment|urlizetrunc:400|linebreaks}}
+
+
+          <div id="response{{forloop.counter}}" class="divforresponse" style="display:none;">
+            <textarea style="width:300px;height:150px"></textarea>
+            <input value="submit" type="submit" />
+            <input onclick="closethis('{{forloop.counter}}')" value="close" type="button" />
+          </div>
+          <div>
+            <a onclick="response('{{forloop.counter}}')" style="color:blue;cursor:pointer;">回复此评论</a>
+          </div>
+
+
         </div>
       {% endfor %}
 
@@ -63,9 +47,9 @@
         <div class="pagination offset3">
           <ul>
           {% if comment_list.has_previous %}
-            <li class="previous"><a href="?page={{ comment_list.previous_page_number }}">前一页</a></li>
+            <li><a href="?page={{ comment_list.previous_page_number }}">前一页</a></li>
           {% else %}
-            <li class="previous disalbed"><a>前一页</a></li>
+            <li class="disabled"><a>前一页</a></li>
           {% endif %}
             {% for p in page_range %}
               {% ifequal p comment_list.number %}
@@ -75,14 +59,10 @@
               {% endifequal %}
             {% endfor %}
           {% if comment_list.has_next %}
-            <li class="next"><a href="?page={{ comment_list.next_page_number }}">后一页</a></li>
+            <li><a href="?page={{ comment_list.next_page_number }}">后一页</a></li>
           {% else %}
-            <li class="next disabled"></a>后一页</a></li>
+            <li class="disabled"><a>后一页</a></li>
           {% endif %}
-          </ul>
-
-          <ul class="nav nav-list">
-            <li class="divider"></li>
           </ul>
         </div><!--/pagination-->
       {% endif %}
@@ -105,7 +85,7 @@
           <p><nobr><asp:label for="id_email">邮箱(必填):</label></nobr><input name="email" id="id_email"></p>
           <p><nobr><asp:label for="id_url">网站(可选):</label></nobr><input name="url" id="id_url"></p>
           {% endcomment %}
-          <p><textarea id="id_comment" row="10" cols="40" name="comment"></textarea></p>
+          <p><textarea id="id_comment" style="width:450px;height:100px" row="10" cols="40" name="comment"></textarea></p>
           <p style="display:none;"><label for="id_honeypot">如果你在该字段中输入任何内容,那么你的评论就会被视为垃圾评论.</label><input type="text" name="honeypot" id="id_honeypot"></p>
           <p><input name="post" value="发表" type="submit" /></p>
           <input type="hidden" name="game_name" value="{{ game.name }}" />

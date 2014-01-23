@@ -6,4 +6,5 @@ urlpatterns = patterns('',
     url(r'^(?P<game_pk>\w+)/show/$', views.show, name='show'),
     url(r'^comments/$', views.comments, name='comments'),
     url(r'^comments/post/$', views.post, name='post'),
+    url(r'^(?P<username>\w+)/profile/$', views.profile, name='profile'),
 )

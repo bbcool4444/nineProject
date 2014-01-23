@@ -45,6 +45,8 @@ INSTALLED_APPS = (
     'game',
     'allGames',
     'south',
+    'taggit',
+    #'django_php',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -91,3 +93,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+TINYMCE_JS_ROOT = MEDIA_ROOT + 'tiny_mce/'
+
+AUTH_PROFILE_MODULE = 'allGames.UserProfile'
+#AUTHENTICATION_BACKENDS = (
+#    'django.contrib.auth.backends.DiscuzAuthBackend',
+#)
+
+TINYMCE_DEFAULT_CONFIG = {
+'theme': 'advanced',
+'theme_advanced_toolbar_location': 'top',
+'theme_advanced_toolbar_align': 'left',
+'width': 600,
+'height': 400,
+}
+

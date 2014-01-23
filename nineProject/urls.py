@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^accounts/logout', logout, name='logout'),
     url(r'^accounts/profile', views.profile),
     url(r'^accounts/register', views.register),
+    url(r'^tinymce', include('tinymce.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

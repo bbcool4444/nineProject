@@ -34,7 +34,8 @@ def index(request):
     else:
         page_range = paginator.page_range[0:int(page)+before_range_num]
 
-    return render_to_response('allGames/index.html', locals(), context_instance=RequestContext(request))
+    #return render_to_response('allGames/index.html', locals(), context_instance=RequestContext(request))
+    return render_to_response('html_temp/index.html', locals(), context_instance=RequestContext(request))
 
 def show(request, game_pk):
     game = Game.objects.get(pk=game_pk)
@@ -93,5 +94,5 @@ def register(request):
         form = UserCreationForm()
     return render_to_response('registration/register.html', {'form': form, 'current_page': current_page})
 
-def profile(request):
+def profile(request, username):
     return render_to_response('accounts/profile.html', locals(), context_instance=RequestContext(request))
