@@ -1,0 +1,236 @@
+{% extends 'html_temp/base.html' %}
+
+
+{% block content %}
+{% load staticfiles %}
+<!-- Blog post
+================================================== -->
+{% include 'html_temp/games.html' %}
+
+<div class="span12 divider-strip">
+  <h4>自研游戏</h4>
+  <span class="strip-block"><em>A list of partners, clients or logo designs</em></span>
+</div>
+
+<section>
+
+  <div class="row">
+  
+    <div class="span8">
+      <div class="row">
+  
+  
+        <div class="span8">
+          <div class="row">
+  
+            <div class="span1">
+              <ul class="blog-meta meta pull-left"><li class="data"><h3>21 may</h3><p>2012</p></li><li class="post-format default"><span></span></li>
+                <li><a href="#">John Smith</a></li><hr />
+                <li><a href="#">Design</a>, <a href="#">Wordpress</a>,<a href="#"> Website</a></li><hr />
+                <li><a href="#">3 Comments</a></li><hr />
+                <li><!-- AddThis Button BEGIN -->
+                  <div class="addthis_toolbox addthis_default_style center">
+                    <a class="addthis_counter"></a>
+                  </div>
+                  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fbf81fd14a77faa"></script>
+                </li><!-- AddThis Button END -->
+              </ul>
+            </div>
+  
+            <div class="span7">
+              <h2 class="post-title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</h2>
+              <p>1111111111111111111111</p>
+              <blockquote>
+                <p>22222222222222222222222222</p>
+                <small>Someone famous</small>
+              </blockquote>
+              <p>3333333333333333333333333333333</p>
+              <a class="btn">read more</a>
+            </div>
+  
+          </div>
+          <div class="divider-post"></div>
+        </div>
+  
+  
+  
+        <div class="span8">
+          <ul class="pagination">
+            <li><a href="#">Prev</a></li>
+            <li class="current">
+              <a href="#">1</a>
+            </li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">Next</a></li>
+          </ul>
+        </div>
+  
+      </div>
+    </div><!-- /span8 -->
+  
+    <!-- Sidebar
+    ================================================== -->
+  
+    <div class="span4">
+    
+      <div class="accordion" id="accordion2">
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+              Popular post
+            </a>
+          </div>
+          <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+              <ul style="margin-left:0;">
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c2.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c3.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c2.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /accordion-group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+              Recent post
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <ul style="margin-left:0;">
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c2.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c3.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              <li><img src="{% static 'allGames/assets/img/blog-examples/blog-home-c2.jpg' %}" alt="" class="imageLeft" width="70" height="50" /><p><a href="#">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid ...</a></p></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /accordion-group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+              Tags
+            </a>
+          </div>
+          <div id="collapseThree" class="accordion-body collapse">
+            <div class="accordion-inner">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+            </div>
+          </div>
+        </div><!-- /accordion-group -->
+      </div><!-- /accordion -->
+  
+  
+        
+      <div class="divider-strip block-title"><h4>Example tabs</h4><span class="strip-block"></span></div>
+      <p><em>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. </em></p>
+      <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+        <li><a href="#profile" data-toggle="tab">Profile</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
+            <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+          <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+        </div>
+        <div class="tab-pane fade" id="profile">
+          <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown.</p>
+        </div>
+        <div class="tab-pane fade" id="dropdown1">
+          <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+        </div>
+        <div class="tab-pane fade" id="dropdown2">
+          <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+        </div>
+      </div><!-- /myTabContent -->
+      
+<section id="labels">
+  <div class="page-header">
+    <h1>热门主题<small>来自9秒论坛</small></h1>
+  </div>
+  <table class="table table-bordered table-striped">
+
+    <thead>
+      <tr>
+        <th>作者</th>
+        <th>主题</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+
+        <td>
+          <span class="label">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span class="label label-success">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          <span class="label label-warning">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label label-important">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label label-info">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span class="label label-inverse">作者</span>
+        </td>
+        <td>
+          <span>主题主题主题主题主题主题</span>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+      <div class="divider-strip block-title" style="display:inline-block"><h4>活跃会员</h4><span class="strip-block"></span></div> 
+            
+      <div class="row"> <div class="span4"><script type="text/javascript" src="http://www.flickr.com/badge_code_v2.gne?count=8&amp;source=user&amp;user=52617155@N08&amp;layout=x&amp;display=random&amp;size=s"></script></div>
+    </div><!-- /span4 -->
+            
+  </div><!--/row-->
+  <div class="divider"></div>
+</section>
+{% endblock %}

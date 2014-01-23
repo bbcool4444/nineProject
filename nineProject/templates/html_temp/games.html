@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<div class="row">
+  <div class="span12">
+    <div id="container" class="change-size">
+    
+    {% for game in games %}
+      <div class="item-block-isotope logos">
+        <p class="number">9</p>
+        <a href="{% url 'allGames:show' game.pk %}" class="hover-desc">
+          <span class="info"></span>
+          <h3 class="symbol">Innovo</h3>
+          <h2 class="name">{{ game.name }}</h2>
+        </a>
+        {% if game.image %}
+        <img src="{{ game.image.url }}" alt="{{ game.name }}" />
+        {% else %}
+        <img alt="{{ game.name }}" />
+        {% endif %}
+      </div>
+    {% endfor %}
+        
+    </div><!-- /#container -->
+  </div><!-- /span12 -->
+</div><!-- /row -->
